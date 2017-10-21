@@ -1,5 +1,6 @@
 window.onload = function(){
 	let walls = document.querySelectorAll(".boundary");
+	let maze_game = document.getElementById("maze");
 	let hit_wall = false;
 	let win = false;
 	for(let index = 0; index < walls.length-1; index++){
@@ -48,7 +49,12 @@ window.onload = function(){
 		hit_wall = false;
 		win = false;
 	});
-	let maze_game = document.getElementById("maze");
+	maze_game.addEventListener("mouseleave",function(){
+		for(let index = 0; index<walls.length-1; index++){
+			walls[index].setAttribute("class", "boundary youlose");
+		}
+		hit_wall = true;
+	});
 	maze_game.addEventListener("mouseover",function(){
 		if(hit_wall === true){
 			for(let index = 0; index < walls.length-1; index++){
