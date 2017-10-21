@@ -15,4 +15,13 @@ window.onload = function(){
 			}
 		}
 	});
+	let start_game = document.getElementById("start");
+	start_game.addEventListener("mouseover",function(){
+		let end_game = document.getElementById("end");
+		end_game.addEventListener("mouseover",function(){
+			if(hit_wall === false){
+				alert("You Win!");
+			}
+		});
+	});
 };
